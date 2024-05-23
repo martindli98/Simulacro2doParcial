@@ -89,8 +89,10 @@ class Venta{
         $total=0;
         foreach ($colMotos as $moto){
             if ($moto instanceof MotoNacional){
-                $precioMotos=$moto->darPrecioVenta();
-                $total=$total+$precioMotos;
+                if ($moto->darPrecioVenta() != -1){
+                    $precioMotos=$moto->darPrecioVenta();
+                    $total=$total+$precioMotos;
+                }
             }
         }
         return $total;
